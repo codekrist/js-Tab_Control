@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #tab {
+            width: 700px;
+            margin: 100px auto;
+        }
+
+        .tab_item {
+            overflow: hidden;
+            border: 1px solid #e2e2e2;
+            border-bottom: 2px solid #ff0000;
+        }
+
+        .tab_item li {
+            height: 40px;
+            line-height: 40px;
+            float: left;
+            width: 100px;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .tab_item li.current {
+            background: #ff0000;
+            color: #fff;
+        }
+
+        .tab_text {
+            font-size: 14px;
+            height: 300px;
+            width: 698px;
+            border: 1px solid #f6f6f6;
+        }
+
+        .tab_text_item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tab">
+        <div class="tab_item">
+            <ul class="tab_list">
+                <li class="current"> 商品介绍</li>
+                <li>规格与包装 </li>
+                <li>售后保障</li>
+                <li>商品评价(6)</li>
+                <li>本店好评商品</li>
+            </ul>
+        </div>
+        <div class="tab_text">
+            <div class="tab_text_item" style="display: block;"> 商品名称：秋冬季加厚保暖羊羔绒床垫1.5米1.8m床2米单人双人褥子榻榻米垫被 羊羔绒驼色
+                1.0m(3.3英尺)床商品编号：59510575019店铺：
+                浵芸家居专营店商品毛重：1.0kg货号：sfSBmjz3功能特性：榻榻米厚度：5-10cm（含5cm）面料：羊绒面料材质：其它适用床尺寸：2.0m（6.6英尺）床，1.8m（6英尺）床，1.5m（5英尺）床，1.35m（4.5英尺）床，1.2m（4英尺）床内部结构：无弹簧发货地：广州是否可定制：可定制软硬度：三重睡感适用人群：青少年尺寸：1.8*2.0m
+            </div>
+
+            <div class="tab_text_item">主体
+                品牌
+                古莱登（GULAIDENG）
+                组立尺寸（cm）
+                组立尺寸（cm）
+                商品承重（kg）
+                商品承重（kg）
+                材质
+                材质
+                包装尺寸（cm）
+                包装尺寸（cm）
+                类别
+                其它</div>
+            <div class="tab_text_item"> 卖家服务</div>
+            <div class="tab_text_item">京东平台卖家销售并发货的商品，由平台卖家提供发票和相应的售后服务。请您放心购买！
+                注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！
+            </div>
+            <div class="tab_text_item">此商品暂时还没有买家印象哦~</div>
+            <div class="tab_text_item">本店好评商品</div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var tabList = document.getElementsByClassName('tab_list')[0];
+    var lis = tabList.getElementsByTagName('li');
+    var tabTextItem = document.getElementsByClassName('tab_text_item');
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].setAttribute('data-index', i);
+        lis[i].onclick = function () {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].className = ''
+            }
+            this.className = 'current';
+            var index = this.getAttribute('data-index');
+            console.log(index)
+            for (var i = 0; i < tabTextItem.length; i++) {
+                tabTextItem[i].style.display = "none"
+            }
+            tabTextItem[index].style.display = 'block'
+        }
+    }
+</script>
